@@ -1,6 +1,6 @@
 {
   "name": "@raccoons-co/ethics",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Clean code ethics.",
   "keywords": [
     "TypeScript",
@@ -15,7 +15,8 @@
   "files": [
     "lib/"
   ],
-  "main": "lib/main/index",
+  "main": "lib/main/index.js",
+  "types": "lib/main/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/raccoons-co/ethics.git"
