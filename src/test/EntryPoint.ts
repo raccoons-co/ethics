@@ -1,6 +1,6 @@
 import {CleanWayBuilder} from "@raccoons-co/cleanway";
-import YourTest from "./YourTest";
+import StrictTest from "./StrictTest";
 
 CleanWayBuilder.instance()
-    .assign(new YourTest())
+    .assign(new StrictTest())
     .build();
