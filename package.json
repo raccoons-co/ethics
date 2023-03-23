@@ -1,7 +1,7 @@
 {
   "name": "@raccoons-co/ethics",
   "version": "0.0.2",
-  "description": "Write YourTest cases, fail fast and have a nice journey in the Node.js galaxy.",
+  "description": "Clean code ethics.",
   "keywords": [
     "TypeScript",
     "NotNull"
