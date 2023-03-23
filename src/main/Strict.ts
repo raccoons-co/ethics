@@ -1,12 +1,12 @@
 import NullPointerException from "./NullPointerException";
 
 /**
- * Static method to enforce a strict clean code ethics.
+ * Static method to enforce a clean code ethics.
  */
 export default class Strict {
 
     /**
-     * Ensures that an object reference passed as a parameter is not null.
+     * Ensures that an object reference is not null.
      *
      * @param reference of an object
      * @param message of the exception if the check fails (optional)
