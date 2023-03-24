@@ -1,9 +1,7 @@
 import {Test} from "@raccoons-co/cleanway";
-import {
-    Strict,
-    NullPointerException
-} from "../main/index";
 import {assert} from "chai";
+import {Strict} from "../main/index";
+import NullPointerException from "../main/NullPointerException";
 
 export default class StrictTest {
 
