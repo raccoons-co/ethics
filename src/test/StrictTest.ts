@@ -1,8 +1,9 @@
 import {Test} from "@raccoons-co/cleanway";
 import {assert} from "chai";
-import {Strict} from "../main/index";
+import {Immutable, Strict} from "../main/index";
 import NullPointerException from "../main/NullPointerException";
 
+@Immutable
 export default class StrictTest {
 
     @Test
