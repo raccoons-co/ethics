@@ -1,4 +1,4 @@
-> *The clean code ethics library.*
+> *The clean code ethics.*
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/raccoons-co/ethics/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/raccoons-co/ethics/tree/master)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=raccoons-co_ethics&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=raccoons-co_ethics)
@@ -15,15 +15,24 @@ import {Strict} from "@raccoons-co/ethics";
 ~~~~
 
 Use:
-
-*public static notNull\<T>(reference: T, message?: string): T;*
+ 
+- `@Immutable` class instances;
+- `public static notNull<T>(reference: T, message?: string): T` references.
 
 
 ~~~~
-constructor(originalMethod: Method,
-            context: ClassMethodDecoratorContext) {
-    this.originalMethod = Strict.notNull(originalMethod);
-    this.context = Strict.notNull(context);
+@Immutable
+export default class TestCase {
+
+    private readonly originalMethod: Method;
+    private readonly context: ClassMethodDecoratorContext;
+
+    constructor(originalMethod: Method,
+               context: ClassMethodDecoratorContext) {
+       this.originalMethod = Strict.notNull(originalMethod);
+       this.context = Strict.notNull(context);
+   }
+ ...
 }
 ~~~~
 
