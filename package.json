@@ -31,7 +31,7 @@
     "test": "node lib/test/EntryPoint"
   },
   "dependencies": {
-    "@raccoons-co/genera": "^0.0.1"
+    "@raccoons-co/genera": "^0.0.2"
   },
   "devDependencies": {
     "@raccoons-co/cleanway": "^1.0.1",
