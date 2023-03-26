@@ -8,19 +8,15 @@ Install:
 % npm i @raccoons-co/ethics
 ```
 
-
-Import:
-~~~~
-import {Strict} from "@raccoons-co/ethics";
-~~~~
-
-Use:
+Follow:
  
 - `@Immutable` class instances;
-- `public static notNull<T>(reference: T, message?: string): T` references.
-
+- *public static `notNull`\<T>(reference: T, message?: string): T.*
+ 
 
 ~~~~
+import {Immutable, Strict} from "@raccoons-co/ethics";
+
 @Immutable
 export default class TestCase {
 
