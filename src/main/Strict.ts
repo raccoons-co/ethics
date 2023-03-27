@@ -6,6 +6,9 @@ import Immutable from "./Immutable";
  */
 @Immutable
 export default class Strict {
+    private constructor() {
+        // Intentionally empty.
+    }
 
     /**
      * Ensures that an object reference is not null.

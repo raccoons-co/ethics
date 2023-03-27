@@ -1,6 +1,6 @@
 {
   "name": "@raccoons-co/ethics",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Clean code ethics.",
   "keywords": [
     "TypeScript",
@@ -34,7 +34,7 @@
     "@raccoons-co/genera": "^0.0.2"
   },
   "devDependencies": {
-    "@raccoons-co/cleanway": "^1.0.1",
+    "@raccoons-co/cleanway": "^2.0.0",
     "@types/chai": "^4.3.4",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
