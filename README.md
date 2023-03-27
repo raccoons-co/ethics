@@ -3,12 +3,15 @@
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/raccoons-co/ethics/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/raccoons-co/ethics/tree/master)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=raccoons-co_ethics&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=raccoons-co_ethics)
 
-Follow:
- 
-- `@Immutable` class instances;
+Annotation:
+
+- *`@Immutable`*
+
+Method:
+
 - *public static `notNull`\<T>(reference: T, message?: string): T.*
  
-
+Use:
 ~~~~
 import {Immutable, Strict} from "@raccoons-co/ethics";
 
@@ -19,9 +22,9 @@ export default class TestCase {
     private readonly context: ClassMethodDecoratorContext;
 
     constructor(originalMethod: Method,
-               context: ClassMethodDecoratorContext) {
-       this.originalMethod = Strict.notNull(originalMethod);
-       this.context = Strict.notNull(context);
+                context: ClassMethodDecoratorContext) {
+        this.originalMethod = Strict.notNull(originalMethod);
+        this.context = Strict.notNull(context);
    }
  ...
 }
