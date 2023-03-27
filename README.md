@@ -9,7 +9,7 @@ Annotation:
 
 Method:
 
-- *public static `notNull`\<T>(reference: T, message?: string): T.*
+- *public static `notNull`\<T>(reference: T, message?: string): T*
  
 Use:
 ~~~~

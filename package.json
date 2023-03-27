@@ -4,7 +4,8 @@
   "description": "Clean code ethics.",
   "keywords": [
     "TypeScript",
-    "NotNull"
+    "NotNull",
+    "Immutable"
   ],
   "homepage": "https://github.com/raccoons-co/ethics#readme",
   "bugs": {
