@@ -45,7 +45,7 @@
     "typescript": "^5.0.2"
   },
   "engines": {
-    "node": ">=lts"
+    "node": ">=16.x"
   },
   "publishConfig": {
     "access": "public",
