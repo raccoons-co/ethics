@@ -1,19 +1,25 @@
 import {Immutable} from "../main/index";
 import {assert} from "chai";
 import {Test} from "@raccoons-co/cleanway";
+import ExtendedWithPropertyMock from "./given/ExtendedWithPropertyMock";
+import ImmutableMock from "./given/ImmutableMock";
 
 @Immutable
 export default class ImmutableObjectTest {
 
-    private mutableProperty = "Mock string object";
+    @Test
+    public isFrozen() {
+        assert.isFrozen(new ImmutableObjectTest());
+    }
 
-    public setProperty(value: string) {
-        this.mutableProperty = value;
+    @Test
+    public hasCorrectInstanceType() {
+        assert.instanceOf(new ImmutableObjectTest(), ImmutableObjectTest);
     }
 
     @Test
     public throwsExceptionOnChangeProperty() {
-        assert.throws(() => new ImmutableObjectTest().setProperty("New value"),
+        assert.throws(() => new ImmutableMock().setProperty("New value"),
             "Cannot assign to read only property");
     }
 
@@ -28,12 +34,7 @@ export default class ImmutableObjectTest {
     }
 
     @Test
-    public hasCorrectInstanceType() {
-        assert.instanceOf(new ImmutableObjectTest(), ImmutableObjectTest);
-    }
-
-    @Test
-    public isFrozen() {
-        assert.isFrozen(new ImmutableObjectTest());
+    public throwsExceptionOnClassExtensionWithProperty() {
+        assert.throws(() => new ExtendedWithPropertyMock(), "object is not extensible");
     }
 }
