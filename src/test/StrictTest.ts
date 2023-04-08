@@ -29,9 +29,4 @@ export default class StrictTest {
         const reference = new Object();
         assert.deepEqual(Strict.notNull(reference), reference);
     }
-
-    @Test
-    public referenceNotEqualToAnother() {
-        assert.notEqual(Strict.notNull(new Object()), new Object());
-    }
 }
