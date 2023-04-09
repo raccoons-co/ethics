@@ -1,8 +1,9 @@
 import {Immutable} from "../main/index";
 import {assert} from "chai";
 import {Test} from "@raccoons-co/cleanway";
-import ExtendedWithPropertyMock from "./given/ExtendedWithPropertyMock";
+import ClassWithPropertyExtendsImmutableMock from "./given/ClassWithPropertyExtendsImmutableMock";
 import ImmutableMock from "./given/ImmutableMock";
+import ImmutableExtendsImmutableMock from "./given/ImmutableExtendsImmutableMock";
 
 @Immutable
 export default class ImmutableObjectTest {
@@ -30,11 +31,18 @@ export default class ImmutableObjectTest {
                 descriptor.value = "static";
                 Object.defineProperty(new ImmutableObjectTest(), "newPropertyKey", descriptor);
             },
-            "Cannot define property");
+            "Cannot define property newPropertyKey");
     }
 
     @Test
-    public throwsExceptionOnClassExtensionWithProperty() {
-        assert.throws(() => new ExtendedWithPropertyMock(), "object is not extensible");
+    public throwsExceptionOnExtensionWithProperty() {
+        assert.throws(() => new ClassWithPropertyExtendsImmutableMock(),
+            "object is not extensible");
+    }
+
+    @Test
+    public throwsExceptionOnImmutableExtendsImmutable() {
+        assert.throws(() => new ImmutableExtendsImmutableMock(),
+            "Cannot assign to read only property 'parentClass'");
     }
 }

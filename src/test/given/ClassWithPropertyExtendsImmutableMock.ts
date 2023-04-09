@@ -1,6 +1,6 @@
 import ImmutableMock from "./ImmutableMock";
 
-export default class ExtendedWithPropertyMock extends ImmutableMock {
+export default class ClassWithPropertyExtendsImmutableMock extends ImmutableMock {
 
     private readonly value: string;
 

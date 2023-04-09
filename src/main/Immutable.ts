@@ -23,6 +23,7 @@ class Immutable implements Annotation {
 
         return class ImmutableObject extends originalClass {
 
+            // Remembers encapsulated class name and prohibits immutable to extend immutable.
             private readonly parentClass: string;
 
             constructor(...args: Any[]) {
