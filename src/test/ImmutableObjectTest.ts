@@ -26,7 +26,8 @@ export default class ImmutableObjectTest {
 
     @Test
     public throwsExceptionOnCreateProperty() {
-        assert.throws(() => {
+        assert.throws(
+            () => {
                 const descriptor = Object.create(null);
                 descriptor.value = "static";
                 Object.defineProperty(new ImmutableMock(), "newPropertyKey", descriptor);

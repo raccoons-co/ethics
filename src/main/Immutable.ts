@@ -23,7 +23,7 @@ class Immutable implements Annotation {
 
         return class ImmutableObject extends originalClass {
 
-            /** The way to remember type and to prohibit extending already immutable class. */
+            /** The way to remember original type and to prohibit extending already immutable class. */
             private readonly originalClassName: string;
 
             constructor(...args: Any[]) {
@@ -31,7 +31,7 @@ class Immutable implements Annotation {
                 this.originalClassName = String(context.name);
                 Object.freeze(this);
             }
-        }
+        };
     }
 }
 

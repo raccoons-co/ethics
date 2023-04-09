@@ -28,4 +28,4 @@ import Immutable from "./Immutable";
 export {
     Strict,
     Immutable
-}
+};
