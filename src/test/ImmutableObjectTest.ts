@@ -1,8 +1,8 @@
 import {Immutable} from "../main/index";
-import {assert} from "chai";
 import {Test} from "@raccoons-co/cleanway";
-import ClassWithPropertyExtendsImmutableMock from "./given/ClassWithPropertyExtendsImmutableMock";
+import {assert} from "chai";
 import ImmutableMock from "./given/ImmutableMock";
+import ClassWithPropertyExtendsImmutableMock from "./given/ClassWithPropertyExtendsImmutableMock";
 import ImmutableExtendsImmutableMock from "./given/ImmutableExtendsImmutableMock";
 
 @Immutable
@@ -10,12 +10,12 @@ export default class ImmutableObjectTest {
 
     @Test
     public isFrozen() {
-        assert.isFrozen(new ImmutableObjectTest());
+        assert.isFrozen(new ImmutableMock());
     }
 
     @Test
     public hasCorrectInstanceType() {
-        assert.instanceOf(new ImmutableObjectTest(), ImmutableObjectTest);
+        assert.instanceOf(new ImmutableMock(), ImmutableMock);
     }
 
     @Test
@@ -29,7 +29,7 @@ export default class ImmutableObjectTest {
         assert.throws(() => {
                 const descriptor = Object.create(null);
                 descriptor.value = "static";
-                Object.defineProperty(new ImmutableObjectTest(), "newPropertyKey", descriptor);
+                Object.defineProperty(new ImmutableMock(), "newPropertyKey", descriptor);
             },
             "Cannot define property newPropertyKey");
     }
@@ -43,6 +43,6 @@ export default class ImmutableObjectTest {
     @Test
     public throwsExceptionOnImmutableExtendsImmutable() {
         assert.throws(() => new ImmutableExtendsImmutableMock(),
-            "Cannot assign to read only property 'parentClass'");
+            "Cannot assign to read only property 'originalClassName'");
     }
 }
