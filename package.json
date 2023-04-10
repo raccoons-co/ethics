@@ -27,23 +27,24 @@
     "lint.packagejson": "npmPkgJsonLint .",
     "lint.typescript": "eslint './src/**/*.ts'",
     "posttest": "npm-run-all lint.*",
-    "prepublishOnly": "npm run build",
-    "pretest": "npm run build",
-    "test": "node lib/test/EntryPoint"
+    "prepack": "npm run build",
+    "test": "nyc ts-node src/test/EntryPoint"
   },
   "dependencies": {
     "@raccoons-co/genera": "^0.0.3"
   },
   "devDependencies": {
-    "@raccoons-co/cleanway": "^2.0.1",
-    "@types/chai": "^4.3.4",
-    "@typescript-eslint/eslint-plugin": "^5.57.1",
-    "@typescript-eslint/parser": "^5.57.1",
+    "@raccoons-co/cleanway": "^2.4.1",
+    "@types/chai": "^4.3.5",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
     "chai": "^4.3.7",
-    "eslint": "^8.38.0",
+    "eslint": "^8.44.0",
     "npm-package-json-lint": "^6.4.0",
     "npm-run-all": "^4.1.5",
-    "typescript": "^5.0.4"
+    "nyc": "^15.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
   },
   "engines": {
     "node": ">=16.x"

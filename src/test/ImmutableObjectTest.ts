@@ -1,10 +1,11 @@
 import {Immutable} from "../main/index";
-import {Test} from "@raccoons-co/cleanway";
+import {Test, TestClass} from "@raccoons-co/cleanway";
 import {assert} from "chai";
 import ImmutableMock from "./given/ImmutableMock";
 import ClassWithPropertyExtendsImmutableMock from "./given/ClassWithPropertyExtendsImmutableMock";
 import ImmutableExtendsImmutableMock from "./given/ImmutableExtendsImmutableMock";
 
+@TestClass
 @Immutable
 export default class ImmutableObjectTest {
 

@@ -3,6 +3,6 @@ import StrictTest from "./StrictTest";
 import ImmutableObjectTest from "./ImmutableObjectTest";
 
 CleanWayBuilder.instance()
-    .assign(new StrictTest())
-    .assign(new ImmutableObjectTest())
+    .use(StrictTest)
+    .use(ImmutableObjectTest)
     .build();
