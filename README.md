@@ -3,17 +3,23 @@
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/raccoons-co/ethics/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/raccoons-co/ethics/tree/master)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=raccoons-co_ethics&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=raccoons-co_ethics)
 
-Annotation:
+#### Annotation  `@Immutable`
 
-- *`@Immutable`*
+Encapsulates instance of annotated class into `ImmutableObject` instance which prevents mutation 
+of the original class instance.
 
-Method:
+#### Method `notNull`
 
-- *public static `notNull`\<T>(reference: T, message?: string): T*
- 
-Use:
+>*public static notNull\<T>(reference: T, message?: string): T*
+
+Ensures that an object reference is not null.
+Returns the non-null reference that was validated.
+Throws `NullPointerException` if reference is null.
+
+#### Usage example
 ~~~~
 import {Immutable, Strict} from "@raccoons-co/ethics";
+import {Method} from "@raccoons-co/genera";
 
 @Immutable
 export default class TestCase {
@@ -26,11 +32,11 @@ export default class TestCase {
         this.originalMethod = Strict.notNull(originalMethod);
         this.context = Strict.notNull(context);
    }
- ...
+   ...
 }
 ~~~~
 
-Install:
+#### Install library
 ```shell script
 % npm i @raccoons-co/ethics
 ```
