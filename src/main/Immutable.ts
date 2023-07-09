@@ -6,7 +6,7 @@ import {Annotation, Any, Class, Method} from "@raccoons-co/genera";
 class Immutable implements Annotation {
 
     public decorator(): Method {
-        return this.replacementClass;
+        return this.immutableObjectClass;
     }
 
     /**
@@ -17,9 +17,7 @@ class Immutable implements Annotation {
      * @param context The context provided to a class decorator
      * @return Class ImmutableObject.
      */
-    private replacementClass<C extends Class>(
-        originalClass: C,
-        context: ClassDecoratorContext): Class {
+    private immutableObjectClass<C extends Class>(originalClass: C, context: ClassDecoratorContext): Class {
 
         return class ImmutableObject extends originalClass {
 
