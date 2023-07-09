@@ -42,5 +42,3 @@ export default class TestCase {
 ```shell script
 % npm i @raccoons-co/ethics
 ```
-
-[Support us with €1](https://send.monobank.ua/jar/6KuKuBf8ki)
