@@ -1,36 +1,35 @@
 import {Annotation, Any, Class, Method} from "@raccoons-co/genera";
 
 /**
- * Encapsulates class instances into `ImmutableObject`.
+ * Encapsulates instance of annotated class into `ImmutableObject` instance.
  */
 class Immutable implements Annotation {
 
     public decorator(): Method {
-        return this.replacementClass;
+        return this.immutableObjectClass;
     }
 
     /**
-     * Returns extended class which prevents mutation of the original class instances.
+     * Returns extended class which prevents mutation of the original class instance.
      *
      * @template C The type of the decorated class
      * @param originalClass The class to decorate
      * @param context The context provided to a class decorator
      * @return Class ImmutableObject.
      */
-    private replacementClass<C extends Class>(
-        originalClass: C,
-        context: ClassDecoratorContext): Class {
+    private immutableObjectClass<C extends Class>(originalClass: C, context: ClassDecoratorContext): Class {
 
         return class ImmutableObject extends originalClass {
 
-            private readonly parentClass: string;
+            /** The way to remember original type and to prohibit extending already immutable class. */
+            private readonly originalClassName: string;
 
             constructor(...args: Any[]) {
                 super(...args);
-                this.parentClass = String(context.name);
+                this.originalClassName = String(context.name);
                 Object.freeze(this);
             }
-        }
+        };
     }
 }
 

@@ -1,20 +1,22 @@
 import {Immutable} from "../main/index";
+import {Test, TestClass} from "@raccoons-co/cleanway";
 import {assert} from "chai";
-import {Test} from "@raccoons-co/cleanway";
-import ExtendedWithPropertyMock from "./given/ExtendedWithPropertyMock";
 import ImmutableMock from "./given/ImmutableMock";
+import ClassWithPropertyExtendsImmutableMock from "./given/ClassWithPropertyExtendsImmutableMock";
+import ImmutableExtendsImmutableMock from "./given/ImmutableExtendsImmutableMock";
 
+@TestClass
 @Immutable
 export default class ImmutableObjectTest {
 
     @Test
     public isFrozen() {
-        assert.isFrozen(new ImmutableObjectTest());
+        assert.isFrozen(new ImmutableMock());
     }
 
     @Test
     public hasCorrectInstanceType() {
-        assert.instanceOf(new ImmutableObjectTest(), ImmutableObjectTest);
+        assert.instanceOf(new ImmutableMock(), ImmutableMock);
     }
 
     @Test
@@ -25,16 +27,24 @@ export default class ImmutableObjectTest {
 
     @Test
     public throwsExceptionOnCreateProperty() {
-        assert.throws(() => {
+        assert.throws(
+            () => {
                 const descriptor = Object.create(null);
                 descriptor.value = "static";
-                Object.defineProperty(new ImmutableObjectTest(), "newPropertyKey", descriptor);
+                Object.defineProperty(new ImmutableMock(), "newPropertyKey", descriptor);
             },
-            "Cannot define property");
+            "Cannot define property newPropertyKey");
     }
 
     @Test
-    public throwsExceptionOnClassExtensionWithProperty() {
-        assert.throws(() => new ExtendedWithPropertyMock(), "object is not extensible");
+    public throwsExceptionOnExtensionWithProperty() {
+        assert.throws(() => new ClassWithPropertyExtendsImmutableMock(),
+            "object is not extensible");
+    }
+
+    @Test
+    public throwsExceptionOnImmutableExtendsImmutable() {
+        assert.throws(() => new ImmutableExtendsImmutableMock(),
+            "Cannot assign to read only property 'originalClassName'");
     }
 }
