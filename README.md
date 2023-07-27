@@ -5,12 +5,7 @@
 
 > *Clean code ethics.*
 
-#### Annotation  `@Immutable`
-
-Encapsulates instance of annotated class into `ImmutableObject` instance which prevents mutation 
-of the original class instance.
-
-#### Method `notNull`
+#### Method `Strict.notNull(...)`
 
 >*public static notNull\<T>(reference: T, message?: string): T*
 
@@ -18,25 +13,18 @@ Ensures that an object reference is not null.
 Returns the non-null reference that was validated.
 Throws `NullPointerException` if reference is null.
 
-#### Usage example
-~~~~
-import {Immutable, Strict} from "@raccoons-co/ethics";
-import {Method} from "@raccoons-co/genera";
+#### Method `Strict.argument(...)`
 
-@Immutable
-export default class TestCase {
+>*public static argument(expression: boolean, message?: string): void*
 
-    private readonly originalMethod: Method;
-    private readonly context: ClassMethodDecoratorContext;
+Ensures the truth of an expression.
+Throws `IllegalArgumentException` if expression is false.
 
-    constructor(originalMethod: Method,
-                context: ClassMethodDecoratorContext) {
-        this.originalMethod = Strict.notNull(originalMethod);
-        this.context = Strict.notNull(context);
-   }
-   ...
-}
-~~~~
+#### Annotation  `@Immutable`
+
+Encapsulates instance of annotated class into `ImmutableObject` instance which prevents mutation 
+of the original class instance.
+
 
 #### Install library
 ```shell script

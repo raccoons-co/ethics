@@ -1,8 +1,10 @@
 import {CleanWayBuilder} from "@raccoons-co/cleanway";
-import StrictTest from "./StrictTest";
+import StrictNotNullTest from "./StrictNotNullTest";
+import StrictArgumentTest from "./StrictArgumentTest";
 import ImmutableObjectTest from "./ImmutableObjectTest";
 
 CleanWayBuilder.instance()
-    .use(StrictTest)
+    .use(StrictNotNullTest)
+    .use(StrictArgumentTest)
     .use(ImmutableObjectTest)
     .build();

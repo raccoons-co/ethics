@@ -5,7 +5,7 @@ import NullPointerException from "../main/NullPointerException";
 
 @TestClass
 @Immutable
-export default class StrictTest {
+export default class StrictNotNullTest {
 
     @Test
     public throwsExceptionIfNullPointer() {

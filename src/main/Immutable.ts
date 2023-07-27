@@ -1,4 +1,5 @@
 import {Annotation, Any, Class, Method} from "@raccoons-co/genera";
+import Strict from "./Strict";
 
 /**
  * Encapsulates instance of annotated class into `ImmutableObject` instance.
@@ -18,6 +19,10 @@ class Immutable implements Annotation {
      * @return Class ImmutableObject.
      */
     private immutableObjectClass<C extends Class>(originalClass: C, context: ClassDecoratorContext): Class {
+
+        Strict.notNull(originalClass);
+        Strict.notNull(context);
+        Strict.argument(String(context.kind) === "class");
 
         return class ImmutableObject extends originalClass {
 

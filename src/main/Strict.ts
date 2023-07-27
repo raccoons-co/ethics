@@ -1,11 +1,11 @@
 import NullPointerException from "./NullPointerException";
-import Immutable from "./Immutable";
+import IllegalArgumentException from "./IllegalArgumentException";
 
 /**
  * Static method to enforce a clean code ethics.
  */
-@Immutable
 export default class Strict {
+
     private constructor() {
         // Intentionally empty.
     }
@@ -13,8 +13,8 @@ export default class Strict {
     /**
      * Ensures that an object reference is not null.
      *
-     * @param reference of an object
-     * @param message of the exception if the check fails (optional)
+     * @param reference an object reference
+     * @param message an optional of the exception if the check fails
      * @return the non-null reference that was validated
      * @throws NullPointerException if reference is null
      */
@@ -23,5 +23,18 @@ export default class Strict {
             throw new NullPointerException(message);
         }
         return reference;
+    }
+
+    /**
+     * Ensures the truth of an expression.
+     *
+     * @param expression a boolean expression
+     * @param message an optional message of the exception if check fails
+     * @throws IllegalArgumentException if expression is false
+     */
+    public static argument(expression: boolean, message?: string): void {
+        if (!expression) {
+            throw new IllegalArgumentException(message);
+        }
     }
 }
