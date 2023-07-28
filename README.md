@@ -13,9 +13,9 @@ Ensures that an object reference is not null.
 Returns the non-null reference that was validated.
 Throws `NullPointerException` if reference is null.
 
-#### Method `Strict.argument(...)`
+#### Method `Strict.checkArgument(...)`
 
->*public static argument(expression: boolean, message?: string): void*
+>*public static checkArgument(expression: boolean, message?: string): void*
 
 Ensures the truth of an expression.
 Throws `IllegalArgumentException` if expression is false.
