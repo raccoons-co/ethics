@@ -11,7 +11,7 @@ export default class StrictArgumentTest {
     @Test
     public throwsExceptionIfFalseExpression(): void {
         assert.throws(
-            () => Strict.argument(false, "Illegal argument"),
+            () => Strict.checkArgument(false, "Illegal argument"),
             IllegalArgumentException,
             "Illegal argument"
         );
@@ -20,7 +20,7 @@ export default class StrictArgumentTest {
     @Test
     public doesNotThrowsExceptionIfTrueExpression(): void {
         assert.doesNotThrow(
-            () => Strict.argument(true, "Argument is ok"),
+            () => Strict.checkArgument(true, "Argument is ok"),
             IllegalArgumentException,
             "Argument is ok"
         );

@@ -32,7 +32,7 @@ export default class Strict {
      * @param message an optional message of the exception if check fails
      * @throws IllegalArgumentException if expression is false
      */
-    public static argument(expression: boolean, message?: string): void {
+    public static checkArgument(expression: boolean, message?: string): void {
         if (!expression) {
             throw new IllegalArgumentException(message);
         }

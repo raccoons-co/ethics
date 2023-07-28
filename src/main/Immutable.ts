@@ -22,7 +22,7 @@ class Immutable implements Annotation {
 
         Strict.notNull(originalClass);
         Strict.notNull(context);
-        Strict.argument(String(context.kind) === "class");
+        Strict.checkArgument(String(context.kind) === "class");
 
         return class ImmutableObject extends originalClass {
 

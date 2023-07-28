@@ -9,6 +9,14 @@
     "@typescript-eslint"
   ],
   "rules": {
+    "eol-last": [
+      "warn",
+      "always"
+    ],
+    "indent": [
+      "warn",
+      4
+    ],
     "max-len": [
       "warn",
       120
@@ -17,13 +25,11 @@
       "warn",
       92
     ],
-    "eol-last": [
-      "warn",
-      "always"
-    ],
-    "indent": [
-      "warn",
-      4
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "all"
+      }
     ],
     "quotes": [
       "warn",
