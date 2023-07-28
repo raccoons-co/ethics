@@ -5,7 +5,7 @@
 
 > *Clean code ethics.*
 
-#### Method `Strict.notNull(...)`
+#### Static Method `Strict.notNull(...)`
 
 >*public static notNull\<T>(reference: T, message?: string): T*
 
@@ -13,14 +13,14 @@ Ensures that an object reference is not null.
 Returns the non-null reference that was validated.
 Throws `NullPointerException` if reference is null.
 
-#### Method `Strict.checkArgument(...)`
+#### Static Method `Strict.checkArgument(...)`
 
 >*public static checkArgument(expression: boolean, message?: string): void*
 
 Ensures the truth of an expression.
 Throws `IllegalArgumentException` if expression is false.
 
-#### Annotation  `@Immutable`
+#### Class Annotation  `@Immutable`
 
 Encapsulates instance of annotated class into `ImmutableObject` instance which prevents mutation 
 of the original class instance.
