@@ -51,7 +51,7 @@ export default class OptionalTest {
 
     @Test
     @DisplayName("get() returns correct value")
-    public returnsCorrectValue(): void {
+    public returnsCorrectValueForGet(): void {
         const optional = Optional.of(7);
         assert.equal(optional.get(), 7);
     }
@@ -63,8 +63,15 @@ export default class OptionalTest {
     }
 
     @Test
+    @DisplayName("orElseThrow() returns correct value")
+    public returnsCorrectValueForOrElseThrow(): void {
+        const optional = Optional.of(7);
+        assert.equal(optional.orElseThrow(), 7);
+    }
+
+    @Test
     @DisplayName("orElseThrow() from Optional.empty() throws `NoSuchElementException`")
-    public throwsExceptiotForElseThrowOnEmpty(): void {
+    public throwsExceptionForElseThrowOnEmpty(): void {
         assert.throws(() => this.emptyOptional.orElseThrow(), NoSuchElementException);
     }
 
