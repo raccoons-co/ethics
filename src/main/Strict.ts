@@ -13,9 +13,9 @@ export default class Strict {
     /**
      * Ensures that an object reference is not null.
      *
-     * @param reference an object reference
-     * @param message an optional of the exception if the check fails
-     * @return the non-null reference that was validated
+     * @param reference - an object reference
+     * @param message - an optional of the exception if the check fails
+     * @returns the non-null reference that was validated
      * @throws NullPointerException if reference is null
      */
     public static notNull<T>(reference: T, message?: string): T {
@@ -28,8 +28,8 @@ export default class Strict {
     /**
      * Ensures the truth of an expression.
      *
-     * @param expression a boolean expression
-     * @param message an optional message of the exception if check fails
+     * @param expression - a boolean expression
+     * @param message - an optional message of the exception if check fails
      * @throws IllegalArgumentException if expression is false
      */
     public static checkArgument(expression: boolean, message?: string): void {

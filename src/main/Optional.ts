@@ -5,7 +5,6 @@ import NoSuchElementException from "./NoSuchElementException";
  * A container object which may or may not contain a non-null value.
  *
  * @typeParam T - the type of the value
- * @since 0.4.0
  * @public
  */
 export default class Optional<T> {
@@ -31,25 +30,25 @@ export default class Optional<T> {
     }
 
     /**
-     * Returns the value if present or empty {@code Optional} throws {@code NoSuchElementException}.
+     * Returns the value if present or empty optional throws NoSuchElementException.
      */
     public get(): T {
         return this.value;
     }
 
     /**
-     * Returns the value if present or empty {@code Optional} throws {@code NoSuchElementException}.
+     * Returns the value if present or empty optional throws NoSuchElementException.
      */
     public orElseThrow(): T {
         return this.get();
     }
 
     /**
-     * Returns an {@code Optional} of given non-null value.
+     * Returns an optional of given non-null value.
      *
      * @typeParam T - the type of the value
      * @param value - the value to describe
-     * @throws {@code NullPointerException} if value is {@code null}.
+     * @throws NullPointerException if value is null.
      */
     public static of<T>(value: T): Optional<Defined<T>> {
         Strict.notNull(value);
@@ -57,7 +56,7 @@ export default class Optional<T> {
     }
 
     /**
-     * Returns an {@code Optional} of given non-null value, otherwise an empty {@code Optional}.
+     * Returns an optional of given non-null value, otherwise an empty optional.
      */
     public static ofNullable<T>(value: T): Optional<Defined<T>> {
         return value
@@ -66,7 +65,7 @@ export default class Optional<T> {
     }
 
     /**
-     * Returns an empty {@code Optional} with no present value to get.
+     * Returns an empty optional with no present value to get.
      */
     public static empty<T>(): Optional<Defined<T>> {
         return <Optional<Defined<T>>>new class EmptyOptional extends Optional<null> {
@@ -94,6 +93,6 @@ export default class Optional<T> {
 }
 
 /**
- * Exclude {@code undefined} from type T.
+ * Exclude undefined from type T.
  */
 type Defined<T> = Exclude<T, undefined>;
