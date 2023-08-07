@@ -5,7 +5,7 @@
 
 > *Clean code ethics.*
 
-####`Strict.notNull(...)`
+#### `Strict.notNull(...)`
 
 >*public static notNull\<T>(reference: T, message?: string): T*
 
@@ -13,50 +13,50 @@ Ensures that an object reference is not null.
 Returns the non-null reference that was validated.
 Throws `NullPointerException` if reference is null.
 
-####`Strict.checkArgument(...)`
+#### `Strict.checkArgument(...)`
 
 >*public static checkArgument(expression: boolean, message?: string): void*
 
 Ensures the truth of an expression.
 Throws `IllegalArgumentException` if expression is false.
 
-####`Optional.empty()`
+#### `Optional.empty()`
 
 >*public static empty\<T>(): Optional<Exclude<T, undefined>>*
 
 Returns an empty optional with no present value to get.
 
-####`Optional.of(...)`
+#### `Optional.of(...)`
 
 >*public static of\<T>(value: T): Optional<Exclude<T, undefined>>*
 
 Returns an optional of given non-null value.
 
-####`Optional.ofNullable(...)`
+#### `Optional.ofNullable(...)`
 
 >*public static ofNullable\<T>(value): Optional<Exclude<T, undefined>>*
 
 Returns an optional of given non-null value, otherwise an empty optional.
 
-####Optional `isEmpty()`
+#### Optional `isEmpty()`
 
 >*public isEmpty(): boolean*
 
 Returns status of value absence.
 
-####Optional `isPresent()`
+#### Optional `isPresent()`
 
 >*public isPresent(): boolean*
 
 Returns status of value presence.
 
-####Optional `get()`
+#### Optional `get()`
 
 >*public get(): T*
 
 Returns the value if present or empty optional throws NoSuchElementException.
 
-####Optional `orElseThrow()`
+#### Optional `orElseThrow()`
 
 >*public orElseThrow(): T*
 
