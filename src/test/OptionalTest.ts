@@ -64,7 +64,21 @@ export default class OptionalTest {
 
     @Test
     @DisplayName("orElse(otherValue) returns correct present value")
-    public nothing():void {
-        assert.equal(this.optional.orElse(8),7);
+    public returnsCorrectValueForOrElse(): void {
+        assert.equal(this.optional.orElse(8), 7);
+    }
+
+    @Test
+    @DisplayName("ifPresentOrElse() performs given action if has value")
+    public performsGivenActionIfPresent(): void {
+        assert.doesNotThrow(() => {
+            this.optional.ifPresentOrElse(
+                (value) => {
+                    assert.equal(value, 7);
+                },
+                () => {
+                    assert.fail("This statement should not be executed");
+                });
+        });
     }
 }

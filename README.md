@@ -6,6 +6,14 @@
 Clean Code Ethics
 ---
 
+#### Install library
+```shell script
+% npm i @raccoons-co/ethics
+```
+
+Strict
+---
+
 #### `Strict.notNull(...)`
 
 >*public static notNull\<T>(reference: T, message?: string): T*
@@ -21,6 +29,7 @@ Throws `NullPointerException` if reference is null.
 Ensures the truth of an expression.
 Throws `IllegalArgumentException` if expression is false.
 
+Optional
 ---
 
 #### `Optional.empty()`
@@ -77,16 +86,16 @@ Returns the value if present or else returns other value.
 
 Performs the given action with the value, otherwise does nothing.
 
+#### Optional `ifPresentOrElse(...)`
+
+>*public ifPresentOrElse(action: (value: T) => void, emptyAction: () => void): void*
+
+Performs the given action with the value, otherwise performs the given empty-based action.
+
+Immutable
 ---
 
 #### Class Annotation  `@Immutable`
 
 Encapsulates instance of annotated class into `ImmutableObject` instance which prevents mutation 
 of the original class instance.
-
----
-
-#### Install library
-```shell script
-% npm i @raccoons-co/ethics
-```

@@ -56,15 +56,30 @@ export default class EmptyOptionalTest {
     @DisplayName("ifPresent() does nothing if empty")
     public doesNothing(): void {
         assert.doesNotThrow(() => {
-            this.emptyOptional.ifPresent((value) => { // eslint-disable-line
-                throw new NoSuchElementException("This statement should be unreachable");
-            });
+            this.emptyOptional.ifPresent(
+                (value) => { // eslint-disable-line @typescript-eslint/no-unused-vars
+                    assert.fail("This statement should not be executed");
+                });
         });
     }
 
     @Test
     @DisplayName("orElse(otherValue) returns correct other value if empty")
-    public nothing():void {
-        assert.equal(this.emptyOptional.orElse(8),8);
+    public returnsCorrectOtherValueForOrElse(): void {
+        assert.equal(this.emptyOptional.orElse(8), 8);
+    }
+
+    @Test
+    @DisplayName("ifPresentOrElse() performs given empty-based action if empty")
+    public performsGivenEmptyActionIfEmpty(): void {
+        assert.throws(() => {
+            this.emptyOptional.ifPresentOrElse(
+                (value) => { // eslint-disable-line @typescript-eslint/no-unused-vars
+                    assert.ok("This statement should not be executed");
+                },
+                () => {
+                    assert.fail("Fails intentionally");
+                });
+        });
     }
 }

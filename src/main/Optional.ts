@@ -55,12 +55,25 @@ export default class Optional<T> {
     /**
      * Performs the given action with the value, otherwise does nothing.
      *
-     * @param performAction - the action to be performed
-     * @throws NullPointerException if given action is null.
+     * @param action - the action to be performed
+     * @throws NullPointerException if given action is null
      */
-    public ifPresent(performAction: (value: T) => void): void {
-        Strict.notNull(performAction);
-        performAction(this.value);
+    public ifPresent(action: (value: T) => void): void {
+        Strict.notNull(action);
+        action(this.value);
+    }
+
+    /**
+     * Performs the given action with the value, otherwise performs the given empty-based action.
+     *
+     * @param action - the action to be performed if value is present
+     * @param emptyAction - the empty-based action to be performed if value is absent
+     * @throws NullPointerException if value is present and the given action is null, or value
+     * is absent and the given empty-based action is null
+     */
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    public ifPresentOrElse(action: (value: T) => void, emptyAction: () => void): void {
+        this.ifPresent(action);
     }
 
     /**
@@ -68,7 +81,7 @@ export default class Optional<T> {
      *
      * @typeParam T - the type of the value
      * @param value - the value to describe
-     * @throws NullPointerException if value is null.
+     * @throws NullPointerException if value is null
      */
     public static of<T>(value: T): Optional<Defined<T>> {
         Strict.notNull(value);
@@ -110,8 +123,16 @@ export default class Optional<T> {
             }
 
             /** @override */
-            public ifPresent(performAction: (value: null) => void): void { // eslint-disable-line
-                // Intentionally empty.
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            public ifPresent(performAction: (value: null) => void): void {
+                // Intentionally empty
+            }
+
+            /** @override */
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            public ifPresentOrElse(action: (value: null) => void, emptyAction: () => void): void {
+                Strict.notNull(emptyAction);
+                emptyAction();
             }
         };
     }
