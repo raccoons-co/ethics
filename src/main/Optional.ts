@@ -44,6 +44,17 @@ export default class Optional<T> {
     }
 
     /**
+     * Performs the given action with the value, otherwise does nothing.
+     *
+     * @param performAction - the action to be performed
+     * @throws NullPointerException if given action is null.
+     */
+    public ifPresent(performAction: (value: T) => void): void {
+        Strict.notNull(performAction);
+        performAction(this.value);
+    }
+
+    /**
      * Returns an optional of given non-null value.
      *
      * @typeParam T - the type of the value
@@ -87,6 +98,11 @@ export default class Optional<T> {
             /** @override */
             public get(): null {
                 throw new NoSuchElementException("No value present");
+            }
+
+            /** @override */
+            public ifPresent(performAction: (value: null) => void): void { // eslint-disable-line
+                // Intentionally empty.
             }
         };
     }

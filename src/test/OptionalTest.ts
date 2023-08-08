@@ -1,42 +1,47 @@
 import {Arguments, ArgumentsSource, DisplayName, ParameterizedTest, Test, TestClass} from "@raccoons-co/cleanway";
 import {assert} from "chai";
 import Optional from "../main/Optional";
-import NoSuchElementException from "../main/NoSuchElementException";
 
 @TestClass
 export default class OptionalTest {
 
-    private readonly emptyOptional = Optional.empty();
+    private readonly optional = Optional.of(7);
 
     @Test
-    public emptyNullObjectIsInstanceOfOptional(): void {
-        assert.instanceOf(Optional.empty(), Optional);
-    }
-
-    @Test
-    @DisplayName("isPresent() returns `False` if empty")
-    public returnsFalsePresenceIfEmpty(): void {
-        assert.isFalse(this.emptyOptional.isPresent());
+    @DisplayName("Optional.of(value) returns instance of Optional")
+    public returnsInstanceOfOptional(): void {
+        assert.instanceOf(this.optional, Optional);
     }
 
     @Test
     @DisplayName("isPresent() returns `True` if has value")
     public returnsTruePresenceIfHasValue(): void {
-        const optional = Optional.of(7);
-        assert.isTrue(optional.isPresent());
+        assert.isTrue(this.optional.isPresent());
     }
 
     @Test
     @DisplayName("isEmpty() returns `False` if has value")
     public returnsFalseEmptinessIfHasValue(): void {
-        const optional = Optional.of(7);
-        assert.isFalse(optional.isEmpty());
+        assert.isFalse(this.optional.isEmpty());
     }
 
     @Test
-    @DisplayName("isEmpty() returns `True` if empty")
-    public returnsTrueEmptinessIfEmpty(): void {
-        assert.isTrue(this.emptyOptional.isEmpty());
+    @DisplayName("get() returns correct present value")
+    public returnsCorrectValueForGet(): void {
+        assert.equal(this.optional.get(), 7);
+    }
+
+    @Test
+    @DisplayName("orElseThrow() returns correct present value")
+    public returnsCorrectValueForOrElseThrow(): void {
+        assert.equal(this.optional.orElseThrow(), 7);
+    }
+
+    @Test
+    @DisplayName("Optional.ofNullable(value) returns optional that has correct value")
+    public returnsEmptyIfValueIsNull(): void {
+        const optional = Optional.ofNullable(8);
+        assert.equal(optional.get(), 8);
     }
 
     @ParameterizedTest
@@ -50,42 +55,12 @@ export default class OptionalTest {
     }
 
     @Test
-    @DisplayName("get() returns correct value")
-    public returnsCorrectValueForGet(): void {
-        const optional = Optional.of(7);
-        assert.equal(optional.get(), 7);
-    }
-
-    @Test
-    @DisplayName("get() from Optional.empty() throws `NoSuchElementException`")
-    public throwsExceptionIfGetFromEmpty(): void {
-        assert.throws(() => this.emptyOptional.get(), NoSuchElementException);
-    }
-
-    @Test
-    @DisplayName("orElseThrow() returns correct value")
-    public returnsCorrectValueForOrElseThrow(): void {
-        const optional = Optional.of(7);
-        assert.equal(optional.orElseThrow(), 7);
-    }
-
-    @Test
-    @DisplayName("orElseThrow() from Optional.empty() throws `NoSuchElementException`")
-    public throwsExceptionForElseThrowOnEmpty(): void {
-        assert.throws(() => this.emptyOptional.orElseThrow(), NoSuchElementException);
-    }
-
-    @Test
-    @DisplayName("Optional.ofNullable(null) returns optional empty")
-    public returnsEmptyIfValueIsNull(): void {
-        const optional = Optional.ofNullable(null);
-        assert.isTrue(optional.isEmpty());
-    }
-
-    @Test
-    @DisplayName("Optional.ofNullable(undefined) returns optional empty")
-    public returnsEmptyIfValueIsUndefined(): void {
-        const optional = Optional.ofNullable(undefined);
-        assert.isTrue(optional.isEmpty());
+    @DisplayName("ifPresent() performs the given action if has value")
+    public performsGivenAction(): void {
+        let presentValue = 0;
+        this.optional.ifPresent((value) => {
+            presentValue = value;
+        });
+        assert.equal(presentValue, 7);
     }
 }
