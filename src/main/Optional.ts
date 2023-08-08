@@ -44,6 +44,15 @@ export default class Optional<T> {
     }
 
     /**
+     * Returns the value if present or else returns other value.
+     *
+     * @param otherValue - the value to be returned if value is absent
+     */
+    public orElse(otherValue: T): T {
+        return this.value ?? otherValue;
+    }
+
+    /**
      * Performs the given action with the value, otherwise does nothing.
      *
      * @param performAction - the action to be performed

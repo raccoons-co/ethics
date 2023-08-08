@@ -61,4 +61,10 @@ export default class OptionalTest {
             assert.equal(value, 7);
         });
     }
+
+    @Test
+    @DisplayName("orElse(otherValue) returns correct present value")
+    public nothing():void {
+        assert.equal(this.optional.orElse(8),7);
+    }
 }

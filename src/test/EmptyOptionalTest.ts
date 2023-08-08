@@ -61,4 +61,10 @@ export default class EmptyOptionalTest {
             });
         });
     }
+
+    @Test
+    @DisplayName("orElse(otherValue) returns correct other value if empty")
+    public nothing():void {
+        assert.equal(this.emptyOptional.orElse(8),8);
+    }
 }
