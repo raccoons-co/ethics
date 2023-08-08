@@ -57,10 +57,8 @@ export default class OptionalTest {
     @Test
     @DisplayName("ifPresent() performs the given action if has value")
     public performsGivenAction(): void {
-        let presentValue = 0;
         this.optional.ifPresent((value) => {
-            presentValue = value;
+            assert.equal(value, 7);
         });
-        assert.equal(presentValue, 7);
     }
 }

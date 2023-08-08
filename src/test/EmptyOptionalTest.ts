@@ -53,7 +53,7 @@ export default class EmptyOptionalTest {
     }
 
     @Test
-    @DisplayName("ifPresent() doesNothing if empty")
+    @DisplayName("ifPresent() does nothing if empty")
     public doesNothing(): void {
         assert.doesNotThrow(() => {
             this.emptyOptional.ifPresent((value) => { // eslint-disable-line
