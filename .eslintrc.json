@@ -24,7 +24,7 @@
     ],
     "max-lines": [
       "warn",
-      120
+      130
     ],
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": [

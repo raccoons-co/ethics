@@ -3,7 +3,8 @@
 [![codecov](https://codecov.io/gh/raccoons-co/ethics/branch/master/graph/badge.svg?token=9X85JVC93D)](https://codecov.io/gh/raccoons-co/ethics)
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/raccoons-co/ethics/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/raccoons-co/ethics/tree/master)
 
-> *Clean code ethics.*
+Clean Code Ethics
+---
 
 #### `Strict.notNull(...)`
 
@@ -20,6 +21,8 @@ Throws `NullPointerException` if reference is null.
 Ensures the truth of an expression.
 Throws `IllegalArgumentException` if expression is false.
 
+---
+
 #### `Optional.empty()`
 
 >*public static empty\<T>(): Optional<Exclude<T, undefined>>*
@@ -34,7 +37,7 @@ Returns an optional of given non-null value.
 
 #### `Optional.ofNullable(...)`
 
->*public static ofNullable\<T>(value): Optional<Exclude<T, undefined>>*
+>*public static ofNullable\<T>(value: T): Optional<Exclude<T, undefined>>*
 
 Returns an optional of given non-null value, otherwise an empty optional.
 
@@ -62,11 +65,26 @@ Returns the value if present or empty optional throws NoSuchElementException.
 
 Returns the value if present or empty optional throws NoSuchElementException.
 
+#### Optional `orElse(...)`
+
+>*public orElse(otherValue: T): T*
+
+Returns the value if present or else returns other value.
+
+#### Optional `ifPresent(...)`
+
+>*public ifPresent(performAction: (value: T) => void): void*
+
+Performs the given action with the value, otherwise does nothing.
+
+---
+
 #### Class Annotation  `@Immutable`
 
 Encapsulates instance of annotated class into `ImmutableObject` instance which prevents mutation 
 of the original class instance.
 
+---
 
 #### Install library
 ```shell script
