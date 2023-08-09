@@ -13,10 +13,10 @@ class Immutable implements Annotation {
     /**
      * Returns extended class which prevents mutation of the original class instance.
      *
-     * @template C The type of the decorated class
-     * @param originalClass The class to decorate
-     * @param context The context provided to a class decorator
-     * @return Class ImmutableObject.
+     * @typeParam C - the type of the decorated class
+     * @param originalClass - the class to decorate
+     * @param context - the context provided to a class decorator
+     * @returns class ImmutableObject.
      */
     private immutableObjectClass<C extends Class>(originalClass: C, context: ClassDecoratorContext): Class {
 
