@@ -1,6 +1,6 @@
 import {Arguments, ArgumentsSource, DisplayName, ParameterizedTest, Test, TestClass} from "@raccoons-co/cleanway";
 import {assert} from "chai";
-import Optional from "../main/Optional";
+import {Optional} from "../main";
 
 @TestClass
 export default class OptionalTest {
