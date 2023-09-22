@@ -8,7 +8,7 @@ import NullPointerException from "../main/NullPointerException";
 export default class StrictNotNullTest {
 
     @Test
-    public throwsExceptionIfNullPointer() {
+    public throwsExceptionIfNullPointer(): void {
         assert.throws(
             () => Strict.notNull(null, "Null is prohibited"),
             NullPointerException,
@@ -17,7 +17,7 @@ export default class StrictNotNullTest {
     }
 
     @Test
-    public throwsExceptionIfUndefinedPointer() {
+    public throwsExceptionIfUndefinedPointer(): void {
         assert.throws(
             () => Strict.notNull(undefined, "Undefined is prohibited"),
             NullPointerException,
@@ -26,8 +26,14 @@ export default class StrictNotNullTest {
     }
 
     @Test
-    public returnsSameObjectReference() {
+    public returnsSameObjectReference(): void {
         const reference = new Object();
         assert.deepEqual(Strict.notNull(reference), reference);
+    }
+
+    @Test
+    public excludesUndefined(): void {
+        const definedString: string = Strict.notNull(process.env.INIT_CWD);
+        assert.isString(definedString);
     }
 }
