@@ -93,7 +93,7 @@ export default class Optional<T> {
      */
     public static ofNullable<T>(value: T): Optional<NonNullable<T>> {
         return value
-            ? this.of<NonNullable<T>>(<NonNullable<T>>value)
+            ? this.of<NonNullable<T>>(value)
             : this.empty<NonNullable<T>>();
     }
 
