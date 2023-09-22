@@ -18,11 +18,11 @@ export default class Strict {
      * @returns the non-null reference that was validated
      * @throws NullPointerException if reference is null
      */
-    public static notNull<T>(reference: T, message?: string): T {
+    public static notNull<T>(reference: T, message?: string): NonNullable<T> {
         if (reference == null) {
             throw new NullPointerException(message);
         }
-        return reference;
+        return <NonNullable<T>>reference;
     }
 
     /**

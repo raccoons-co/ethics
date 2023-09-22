@@ -16,7 +16,7 @@ Strict
 
 #### `Strict.notNull(...)`
 
->*public static notNull\<T>(reference: T, message?: string): T*
+>*public static notNull\<T>(reference: T, message?: string): NonNullable\<T>*
 
 Ensures that an object reference is not null.
 Returns the non-null reference that was validated.
