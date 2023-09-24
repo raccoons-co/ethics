@@ -83,25 +83,25 @@ export default class Optional<T> {
      * @param value - the value to describe
      * @throws NullPointerException if value is null
      */
-    public static of<T>(value: T): Optional<NonNullable<T>> {
+    public static of<T>(value: T): Optional<Defined<T>> {
         Strict.notNull(value);
-        return new Optional<NonNullable<T>>(<NonNullable<T>>value);
+        return new Optional<Defined<T>>(<Defined<T>>value);
     }
 
     /**
      * Returns an optional of given non-null value, otherwise an empty optional.
      */
-    public static ofNullable<T>(value: T): Optional<NonNullable<T>> {
+    public static ofNullable<T>(value: T): Optional<Defined<T>> {
         return value
-            ? this.of<NonNullable<T>>(value)
-            : this.empty<NonNullable<T>>();
+            ? this.of<Defined<T>>(<Defined<T>>value)
+            : this.empty<Defined<T>>();
     }
 
     /**
      * Returns an empty optional with no present value to get.
      */
-    public static empty<T>(): Optional<Exclude<T, undefined>> {
-        return <Optional<Exclude<T, undefined>>>new class EmptyOptional extends Optional<null> {
+    public static empty<T>(): Optional<Defined<T>> {
+        return <Optional<Defined<T>>>new class EmptyOptional extends Optional<null> {
 
             constructor() {
                 super(null);
@@ -137,3 +137,8 @@ export default class Optional<T> {
         };
     }
 }
+
+/**
+ * Exclude undefined from type T.
+ */
+type Defined<T> = Exclude<T, undefined>;

@@ -81,4 +81,10 @@ export default class OptionalTest {
                 });
         });
     }
+
+    @Test
+    public excludesUndefined(parameter?: string): void {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const maybeParameter: Optional<string> = Optional.ofNullable(parameter); // NOSONAR
+    }
 }
