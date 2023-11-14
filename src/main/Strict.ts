@@ -22,7 +22,7 @@ export default class Strict {
         if (reference == null) {
             throw new NullPointerException(message);
         }
-        return reference;
+        return <NonNullable<T>>reference;
     }
 
     /**
